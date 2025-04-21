@@ -3,10 +3,12 @@ session_start();
 include('db.php');
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Website Komersial</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <!-- Navbar -->
@@ -65,13 +67,22 @@ include('db.php');
       <?php
       $sql = "SELECT * FROM comments ORDER BY created_at DESC";
       $result = $conn->query($sql);
-      if($result->num_rows > 0){
+      if($result && $result->num_rows > 0){
           while($row = $result->fetch_assoc()){
               echo "<div class='comment-item'>";
-              echo "<strong>" . htmlspecialchars($row['username']) . "</strong>";
-              echo " (Rating: " . htmlspecialchars($row['rating']) . " Bintang)";
-              echo "<p>" . htmlspecialchars($row['comment']) . "</p>";
+              echo "<strong>" . htmlspecialchars($row['username']) . "</strong> ";
+              echo "(Rating: " . htmlspecialchars($row['rating']) . " Bintang)";
+              echo "<p>" . nl2br(htmlspecialchars($row['comment'])) . "</p>";
               echo "<small>" . $row['created_at'] . "</small>";
+
+              // Tombol Edit/Delete hanya untuk pemilik komentar
+              if(isset($_SESSION['user']) && $_SESSION['user']['id'] == $row['user_id']){
+                  echo "<div class='comment-actions'>";
+                  echo "<a href='edit_comment.php?id=" . $row['id'] . "'>Edit</a> | ";
+                  echo "<a href='delete_comment.php?id=" . $row['id'] . "' onclick='return confirm(\'Hapus komentar ini?\');'>Delete</a>";
+                  echo "</div>";
+              }
+
               echo "</div>";
           }
       } else {
