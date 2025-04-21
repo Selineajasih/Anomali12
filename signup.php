@@ -33,7 +33,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $error = "Alamat email tidak valid.";
     } else {
         // Insert ke database, verified default 0
-        $stmt = $conn->prepare("INSERT INTO users (username, email, password, verified) VALUES (?, ?, ?, 1).");
+        $stmt = $conn->prepare("INSERT INTO users (username, email, password, verified) VALUES (?, ?, ?, 1)");
         $stmt->bind_param("sss", $username, $email, $password);
         if($stmt->execute()){
             // Simulasi pengiriman email verifikasi (pada implementasi nyata, kirim email)
