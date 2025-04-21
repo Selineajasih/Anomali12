@@ -1,21 +1,67 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Sign Up</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="src/output.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+      body {
+        font-family: 'Poppins', sans-serif;
+      }
+    </style>
 </head>
-<body>
-  <h2>Sign Up</h2>
-  <?php if(isset($error)) echo "<p style='color:red;'>$error</p>"; ?>
-  <form method="POST" action="">
-    <input type="text" name="username" placeholder="Username" required>
-    <input type="email" name="email" placeholder="Email" required>
-    <input type="password" name="password" placeholder="Password" required>
-    <button type="submit">Sign Up</button>
-  </form>
-  <p>Sudah punya akun? <a href="login.php">Login</a></p>
+<body class="bg-blue-50 flex justify-center items-center min-h-screen px-4">
+
+<!-- container -->
+  <div class="xl:w-5/6 md:w-5/6 rounded-4xl flex items-center justify-between min-h-[600px] p-8 overflow-hidden shadow-2xl  bg-cover bg-center" style="background-image: url('assets/abstract-triangle.jpg');">
+
+  <!-- side -->
+    <div class="hidden lg:block w-1/2 bg-cover bg-center rounded-l-4xl">
+      <div class="">
+        <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-6 text-white" style="text-shadow: 2px 2px 2px rgba(0,0,0,0.3);">Hallo, Customer!</h1>
+        <p class="font-normal shadow-2xl text-center mb-6 text-white" style="text-shadow: 2px 2px 2px rgba(0,0,0,0.3);">Kalo udah punya akun Sign In dibawah ini ya!</p>
+        <div class="flex justify-center">
+        <a href="login.php" class="block text-center w-1/2 bg-transparent border-white border-2 text-white p-3 rounded-full hover:bg-cyan-900 transition" style="text-shadow: 2px 2px 2px rgba(0,0,0,0.3);">
+          Sign In
+        </a>
+
+    </div>
+
+      </div>
+    </div>
+
+    <!-- form sign up -->
+    <div class="bg-white p-8 rounded-4xl shadow-lg w-full md:w-full lg:w-1/2 h-full">
+      <?php if(isset($error)) echo "<p class='text-red-500 mb-4 text-sm text-center'>$error</p>"; ?>
+      <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-6 text-cyan-500">Sign Up Njir</h1>
+      <form method="POST" action="" class="space-y-4">
+        <div>
+          <input type="text" name="username" placeholder="Username" required class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400" />
+        </div>
+        <div>
+          <input type="email" name="email" placeholder="Email" required class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400" />
+        </div>
+        <div class="relative">
+          <input id="password" type="password" name="password" placeholder="Password" required class="w-full p-3 border border-gray-300 rounded-md pr-12 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+          <button type="button" onclick="togglePassword()" class="absolute top-1/2 right-3 transform -translate-y-1/2 text-gray-500 hover:text-blue-500">
+            <svg id="eyeIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+            </svg>
+          </button>
+        </div>
+        <div>
+          <button type="submit" class="w-full bg-cyan-700 text-white p-3 rounded-md hover:bg-cyan-900 transition">Sign Up</button>
+        </div>
+      </form>
+      <p class="blcock lg:hidden mt-4 text-center text-sm">Sudah punya akun? <a href="login.php" class="text-blue-500 hover:underline">Login</a></p>
+    </div>
+  </div>
+
 </body>
-</html>?>
+</html>
 
 
 <?php
