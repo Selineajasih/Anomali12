@@ -1,5 +1,6 @@
 <?php
 // login.php
+
 session_start();
 include('db.php');
 
@@ -11,6 +12,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $stmt = $conn->prepare("SELECT id, username, password FROM users WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
+
     $result = $stmt->get_result();
 
     if($result->num_rows == 1){
@@ -31,6 +33,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     $stmt->close();
 }
+// end login logic
 ?>
 <!DOCTYPE html>
 <html>

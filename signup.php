@@ -1,41 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
-    <link rel="stylesheet" href="src/output.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <style>
-      body {
-        font-family: 'Poppins', sans-serif;
-      }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up</title>
+
+  <!-- Tailwind CSS -->
+  <link rel="stylesheet" href="src/output.css" />
+  <!-- Font Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
 </head>
+
 <body class="bg-blue-50 flex justify-center items-center min-h-screen px-4">
 
-<!-- container -->
-  <div class="xl:w-5/6 md:w-5/6 rounded-4xl flex items-center justify-between min-h-[600px] p-8 overflow-hidden shadow-2xl  bg-cover bg-center" style="background-image: url('assets/abstract-triangle.jpg');">
+  <!-- Container -->
+  <div class="xl:w-5/6 md:w-5/6 rounded-4xl flex items-center justify-between min-h-[600px] p-8 overflow-hidden shadow-2xl bg-cover bg-center" style="background-image: url('assets/abstract-triangle.jpg');">
 
-  <!-- side -->
+    <!-- Side Info (Left Panel) -->
     <div class="hidden lg:block w-1/2 bg-cover bg-center rounded-l-4xl">
-      <div class="">
-        <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-6 text-white" style="text-shadow: 2px 2px 2px rgba(0,0,0,0.3);">Hallo, Customer!</h1>
-        <p class="font-normal shadow-2xl text-center mb-6 text-white" style="text-shadow: 2px 2px 2px rgba(0,0,0,0.3);">Kalo udah punya akun Sign In dibawah ini ya!</p>
+      <div>
+        <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-6 text-white" style="text-shadow: 2px 2px 2px rgba(0,0,0,0.3);">
+          Hallo, Customer!
+        </h1>
+        <p class="font-normal text-center mb-6 text-white" style="text-shadow: 2px 2px 2px rgba(0,0,0,0.3);">
+          Kalo udah punya akun Sign In dibawah ini ya!
+        </p>
         <div class="flex justify-center">
-        <a href="login.php" class="block text-center w-1/2 bg-transparent border-white border-2 text-white p-3 rounded-full hover:bg-cyan-900 transition" style="text-shadow: 2px 2px 2px rgba(0,0,0,0.3);">
-          Sign In
-        </a>
-
-    </div>
-
+          <a href="login.php" class="block text-center w-1/2 bg-transparent border-white border-2 text-white p-3 rounded-full hover:bg-cyan-900 transition" style="text-shadow: 2px 2px 2px rgba(0,0,0,0.3);">
+            Sign In
+          </a>
+        </div>
       </div>
     </div>
+    <!-- End Side Info -->
 
-    <!-- form sign up -->
+    <!-- Sign Up Form -->
     <div class="bg-white p-8 rounded-4xl shadow-lg w-full md:w-full lg:w-1/2 h-full">
       <?php if(isset($error)) echo "<p class='text-red-500 mb-4 text-sm text-center'>$error</p>"; ?>
-      <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-6 text-cyan-500">Sign Up Njir</h1>
+      
+      <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-6 text-cyan-500">
+        Sign Up Njir
+      </h1>
+
       <form method="POST" action="" class="space-y-4">
         <div>
           <input type="text" name="username" placeholder="Username" required class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400" />
@@ -53,16 +65,23 @@
           </button>
         </div>
         <div>
-          <button type="submit" class="w-full bg-cyan-700 text-white p-3 rounded-md hover:bg-cyan-900 transition">Sign Up</button>
+          <button type="submit" class="w-full bg-cyan-700 text-white p-3 rounded-md hover:bg-cyan-900 transition">
+            Sign Up
+          </button>
         </div>
       </form>
-      <p class="blcock lg:hidden mt-4 text-center text-sm">Sudah punya akun? <a href="login.php" class="text-blue-500 hover:underline">Login</a></p>
+
+      <p class="block lg:hidden mt-4 text-center text-sm">
+        Sudah punya akun? <a href="login.php" class="text-blue-500 hover:underline">Login</a>
+      </p>
     </div>
+    <!-- End Sign Up Form -->
+
   </div>
+  <!-- End Container -->
 
 </body>
 </html>
-
 
 <?php
 // signup.php
