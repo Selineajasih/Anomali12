@@ -7,7 +7,7 @@ include('db.php');
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Joni Cleaner</title>
+  <title>JMA Cleaning Services</title>
 
   <!-- Tailwind CSS -->
   <link rel="stylesheet" href="src/output.css" />
@@ -15,6 +15,8 @@ include('db.php');
 
   <!-- Font Poppins -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
 
   <style>
     body {
@@ -24,19 +26,19 @@ include('db.php');
 </head>
 <body class="bg-blue-30 min-h-screen">
   <!-- NAVBAR -->
-  <nav class="w-full bg-blue-50 bg-opacity-50 backdrop-blur-md fixed z-50 flex justify-between p-4 items-center top-0 shadow-cyan-300 shadow-2xl rounded-b-3xl">
-    <div class="font-bold text-2xl">
-      <span class="text-cyan-700">Joni Clean</span><span class="text-cyan-400">.</span>
+  <nav class="w-full bg-blue-50 bg-opacity-50 backdrop-blur-md fixed z-50 flex justify-between p-2 md:p-4 items-center top-0 shadow-cyan-300 shadow-2xl rounded-b-3xl">
+    <div class="font-bold text-2xl sm:text-xl">
+      <span class="text-cyan-700">JMA Cleaning Services</span><span class="text-cyan-400">.</span>
     </div>
 
-    <div class="text-sm text-cyan-950">
+    <div class="text-sm text-cyan-950 ">
       <?php if (isset($_SESSION['user'])): ?>
-        <span>Welcome, <?php echo htmlspecialchars($_SESSION['user']['username']); ?>!</span>
+        <span class="hidden md:inline-block">Welcome, <?php echo htmlspecialchars($_SESSION['user']['username']); ?>!</span>
         <!-- Button Logout -->
         <a href="logout.php" class="font-bold hover:underline ml-2 p-3 hover:text-red-600">Logout</a>
       <?php else: ?>
-        <a href="login.php" class="border-2 border-transparent bg-cyan-950 p-3 text-white hover:bg-cyan-800 rounded-2xl font-semibold">Login</a>
-        <a href="signup.php" class="border-2 border-cyan-950 p-3 hover:border-cyan-500 rounded-2xl hover:text-cyan-500 font-semibold">Sign Up</a>
+        <a href="login.php" class="border-2 border-transparent bg-cyan-950 p-2 px-3 md:p-3 md:px-4 text-white hover:bg-cyan-800 rounded-2xl font-semibold">Login</a>
+        <a href="signup.php" class="border-2 border-cyan-950 p-2 px-3 md:p-3 md:px-4 hover:border-cyan-500 rounded-2xl hover:text-cyan-500 font-semibold">Sign Up</a>
       <?php endif; ?>
     </div>
   </nav>
@@ -47,8 +49,9 @@ include('db.php');
 
     <!-- Banner -->
     <section class="text-center py-12 w-full">
-      <h1 class="text-2xl font-semibold text-gray-700 md:text-4xl">Selamat Datang di Website<br>
-      <span class="text-cyan-700 font-bold">Joni Clean</span><span class="text-cyan-400">.</span></h1>
+      <h1 class="font-semibold text-gray-700 text-2xl md:text-4xl lg:text-5xl">Selamat Datang di Website Kami<br>
+        <span id="element" class="text-cyan-700 font-bold"></span>
+      </h1>
       <p class="text-gray-600 mt-2 md:px-26 px-6 lg:px-32 md:text-base text-xs md:mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus hic iste, voluptatibus voluptatem provident facere dicta, sunt, consectetur quia totam sapiente quidem. Reprehenderit sint officia aliquid, similique, autem quia laboriosam ipsum nisi voluptatum iste natus?</p>
 
       <div class="w-full px-10 py-10 md:px-20 lg:px-40 flex justify-center items-center">
@@ -58,13 +61,13 @@ include('db.php');
 
     <!-- Services -->
     <section class="justify-center w-full">
-      <h2 class="text-3xl font-semibold text-cyan-700 mb-4 w-full text-center">Layanan Kami</h2>
+      <h2 class="text-xl md:text-2xl lg:text-3xl font-semibold text-cyan-700 mb-4 w-full text-center">Layanan Kami</h2>
 
       <!-- container -->
       <div class="flex-col flex md:flex-row gap-4 justify-center w-full items-center">
 
         <!-- service option -->
-        <div class=" p-6 shadow-xl rounded-2xl w-4/5 lg:w-1/3">
+        <div class=" p-6 shadow-xl rounded-2xl w-2/3 lg:w-1/4">
           <div class="font-bold text-cyan-500 text-center text-xl">
             Pantat Cleaning
           </div>
@@ -82,7 +85,7 @@ include('db.php');
         </div>
 
         <!-- service option -->
-        <div class=" p-6 shadow-xl rounded-2xl w-4/5 lg:w-1/3">
+        <div class=" p-6 shadow-xl rounded-2xl w-2/3 lg:w-1/4">
           <div class="font-bold text-cyan-500 text-center text-xl">
             Pantat Cleaning
           </div>
@@ -100,7 +103,7 @@ include('db.php');
         </div>
 
         <!-- service option -->
-        <div class=" p-6 shadow-xl rounded-2xl w-4/5 lg:w-1/3">
+        <div class=" p-6 shadow-xl rounded-2xl w-2/3 lg:w-1/4">
           <div class="font-bold text-cyan-500 text-center text-xl">
             Pantat Cleaning
           </div>
@@ -116,13 +119,14 @@ include('db.php');
             </a>
           </div>
         </div>
+
 
       </div>
     </section>
 
     <!-- Comments -->
     <section class="py-8 mt-20">
-      <h2 class="text-2xl font-semibold text-cyan-700 mb-4">Komentar</h2>
+      <h2 class="text-xl md:text-2xl lg:text-3xl font-semibold text-cyan-700 mb-4 sm:text-xl">Komentar</h2>
 
       <?php if (isset($_SESSION['user'])): ?>
         <form id="commentForm" method="POST" action="process_comment.php" onsubmit="return validateComment();" class="space-y-4">
@@ -174,8 +178,12 @@ include('db.php');
 
   </main>
 
-  <footer class="bg-cyan-800 text-white text-center py-4 mt-8">
-    <p>&copy; 2025 MyWebsite. All rights reserved.</p>
+  <footer class="bg-cyan-800 text-white p-4 mt-8 flex items-center justify-between">
+    <p class="w-full">&copy; 2025 JMA Cleaning Services.</p>
+    <div class="flex gap-2 text-white">
+      <i data-feather="mail"></i>
+      <p class="">jmacleaningservice@hotmail.com</p>
+    </div>
   </footer>
 
   <script>
@@ -188,7 +196,20 @@ include('db.php');
       }
       return true;
     }
-  </script>
 
+    var typed = new Typed('#element', {
+    strings: [
+      'Siap Bersihin Rumah Anda!',
+      'Sampe Kinclong Dong!',
+      'JMA Cleaning Services<span class="text-cyan-400">.</span>'
+    ],
+    typeSpeed: 50,
+    backSpeed: 25,
+    loop: true
+  });
+
+  feather.replace();
+    
+  </script>
 </body>
 </html>
