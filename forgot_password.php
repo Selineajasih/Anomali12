@@ -126,7 +126,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
           <!-- BUTTON  -->
           <div class="relative flex gap-2 mt-10">
-            <button class="border-2 border-cyan-950 p-3 w-full hover:border-cyan-700 rounded-2xl hover:text-cyan-700 font-semibold"><a href="index.php">Batal</a></button>
+            <a href="index.php" class="border-2 border-cyan-950 text-center p-3 w-full hover:border-cyan-700 rounded-2xl hover:text-cyan-700 font-semibold">Batal</a>
             <button type="submit" class="border-2 border-transparent w-full bg-cyan-950 p-3 text-white hover:bg-cyan-800 rounded-2xl font-semibold">Reset</button>   
           </div>
         </form>
