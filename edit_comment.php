@@ -48,8 +48,8 @@ $stmt->close();
 
   <!-- NAVBAR -->
   <nav class="w-full fixed z-50 flex justify-between p-4 items-center top-0">
-    <div class="font-bold text-2xl">
-      <span class="text-cyan-700">Joni Clean</span><span class="text-cyan-400">.</span>
+  <div class="font-bold text-2xl sm:text-xl">
+      <span class="text-cyan-700">JMA Cleaning Services</span><span class="text-cyan-400">.</span>
     </div>
   </nav>
   <!-- NAVBAR END -->
@@ -85,7 +85,7 @@ $stmt->close();
 
     <!-- BUTTON  -->
     <div class="flex items-center gap-2 mt-6">
-      <button class="border-2 border-cyan-950 p-3 w-full hover:border-cyan-700 rounded-2xl hover:text-cyan-700 font-semibold"><a href="index.php">Batal</a></button>
+      <a href="index.php" class="border-2 border-cyan-950 p-3 w-full hover:border-cyan-700 rounded-2xl hover:text-cyan-700 font-semibold text-center">Batal</a>
       <button type="submit" class="border-2 border-transparent w-full bg-cyan-950 p-3 text-white hover:bg-cyan-800 rounded-2xl font-semibold">Edit</button>   
     </div>
     </form>

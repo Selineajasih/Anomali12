@@ -75,8 +75,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 <body class="min-h-screen">
   <!-- NAVBAR -->
   <nav class="w-full fixed z-50 flex justify-between p-4 items-center top-0">
-    <div class="font-bold text-2xl">
-      <span class="text-cyan-700">Joni Clean</span><span class="text-cyan-400">.</span>
+  <div class="font-bold text-2xl sm:text-xl">
+      <span class="text-cyan-700">JMA Cleaning Services</span><span class="text-cyan-400">.</span>
     </div>
   </nav>
   <!-- NAVBAR END -->
@@ -92,7 +92,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
       <?php if($success): ?>      
           <p class="success text-center md:text-base text-xs">
-            <?= $success ?> Silakan <a href='login.php' class="underline font-bold">Login</a> dengan password baru Anda.
+            <?= $success ?> Silakan <a href='login.php' class="hover:underline text-blue-500 font-bold ">Login</a> dengan password baru Anda.
           </p>
       <?php else: ?>
         <?php if($error): ?>

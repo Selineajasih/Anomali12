@@ -23,7 +23,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             exit;
         } else {
             // Password salah → tampilkan error + link reset
-            $error = "Password salah. <a href='forgot_password.php'>Reset Password</a>";
+            $error = 'Password salah. <a href="forgot_password.php" class="font-bold hover:underline text-center">Reset Password</a>';
         }
     } else {
         $error = "Email tidak ditemukan.";
@@ -38,6 +38,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
   <title>Sign In</title>
   <link rel="stylesheet" href="src/output.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
       font-family: 'Poppins', sans-serif;
@@ -52,26 +53,26 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     <!-- form login -->
     <div class="bg-white p-8 rounded-4xl shadow-lg w-full md:w-full lg:w-1/2 h-full">
-      
+
+      <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center text-cyan-500">Sign In dulu Wak</h1>
+
       <!-- alert / error message -->
       <?php 
       if (isset($_SESSION['message'])) {
-          echo "<p style='color:green;'>".$_SESSION['message']."</p>";
+          echo "<p style='color:green;' class='text-center'>".$_SESSION['message']."</p>";
           unset($_SESSION['message']);
       }
-      if (isset($error)) echo "<p style='color:red;'>$error</p>"; 
+      if (isset($error)) echo "<p style='color:red;' class='text-center'>$error</p>";
       ?>
       <!-- end alert -->
-
-      <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-6 text-cyan-500">Sign In dulu Wak</h1>
       
-      <form method="POST" action="" class="space-y-4">
+      <form method="POST" action="" class="space-y-4 mt-4">
         <div>
           <input type="text" name="email" placeholder="Email" required class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400" />
         </div>
         <div class="relative">
           <input id="password" type="password" name="password" placeholder="Password" required class="w-full p-3 border border-gray-300 rounded-md pr-12 focus:outline-none focus:ring-2 focus:ring-blue-400" />
-          <button type="button" onclick="togglePassword()" class="absolute top-1/2 right-3 transform -translate-y-1/2 text-gray-500 hover:text-blue-500">
+          <button type="button" onclick="togglePassword()" class="absolute top-2/3 right-3 transform -translate-y-1/2 text-gray-500 hover:text-blue-500">
             <svg id="eyeIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
@@ -84,7 +85,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
       </form>
 
       <p class="block lg:hidden mt-4 text-center text-sm">
-        Belum punya akun? <a href="signup.php" class="text-blue-500 hover:underline">Sign Up</a>
+        Belum punya akun? <a href="signup.php" class="text-blue-500 font-bold hover:underline">Sign Up</a>
       </p>
     </div>
     <!-- end form -->
