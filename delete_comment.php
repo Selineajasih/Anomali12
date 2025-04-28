@@ -23,7 +23,7 @@ if(isset($_GET['id'])){
         $del = $conn->prepare("DELETE FROM comments WHERE id = ?");
         $del->bind_param("i", $id);
         if(!$del->execute()){
-            die("Gagal menghapus komentar: " . $del->error);
+            die("Failed to delete the comment: " . $del->error);
         }
         $del->close();
     }

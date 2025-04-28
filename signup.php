@@ -1,6 +1,5 @@
 <?php
 // signup.php
-
 session_start();
 include('db.php');
 
@@ -97,7 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </form>
 
       <p class="block lg:hidden mt-4 text-center text-sm">
-        Sudah punya akun? <a href="login.php" class="text-blue-500 hover:underline">Sign In</a>
+        Already have an account? <a href="login.php" class="text-blue-500 hover:underline">Sign In</a>
       </p>
     </div>
     <!-- end sign up -->
@@ -105,7 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <!-- Side Info -->
     <div class="hidden lg:block w-1/2 bg-cover bg-center rounded-l-4xl">
       <div class="p-8">
-        <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-6 text-cyan-900">Welcome Back!</h1>
+        <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-6 text-cyan-900">Hello, Customer!</h1>
         <p class="font-normal text-center mb-6 text-cyan-900">
           To keep connected with us please login with your personal info
         </p>
@@ -128,3 +127,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   </script>
 </body>
 </html>
+
+<script>
+    function togglePassword() {
+      const passwordInput = document.getElementById('password');
+      const eyeIcon = document.getElementById('eyeIcon');
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+      } else {
+        passwordInput.type = 'password';
+      }
+    }
+</script>

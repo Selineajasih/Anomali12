@@ -48,8 +48,8 @@ $stmt->close();
 
   <!-- NAVBAR -->
   <nav class="w-full fixed z-50 flex justify-between p-4 items-center top-0">
-    <div class="font-bold text-2xl">
-      <span class="text-cyan-700">Joni Clean</span><span class="text-cyan-400">.</span>
+  <div class="font-bold text-2xl sm:text-xl">
+      <span class="text-cyan-700">JMA Cleaning Services</span><span class="text-cyan-400">.</span>
     </div>
   </nav>
   <!-- NAVBAR END -->
@@ -58,21 +58,21 @@ $stmt->close();
   <main class="flex justify-center min-h-screen items-center">
     
   <!-- CARD -->
-  <div class="w-1/3 justify-self-center shadow-2xl rounded-4xl p-8 items-center">
+  <div class="lg:w-1/3 md:w-4/5 w-4/5 justify-self-center shadow-2xl rounded-4xl p-8 items-center">
     <!-- image  -->
     <div class=" justify-self-center w-1/3">
       <img src="assets/17294438.png" alt="">
     </div>
 
-    <div class="font-bold text-3xl text-center w-full my-6">Edit Komentar Anda</div>
+    <div class="font-bold md:text-2xl text-xl text-center w-full my-6">Edit your comment</div>
     
-    <label class="font-semibold">Komentar</label>
+    <label class="font-semibold md:text-base text-sm">Comment</label>
     <form method="POST" action="update_comment.php">
     <input type="hidden" name="id" value="<?php echo $id; ?>">
-    <textarea name="comment" required class="w-full border-2 mt-2 border-gray-500 focus:border-cyan-400 p-2 rounded-xl"><?php echo htmlspecialchars($oldComment); ?></textarea>
+    <textarea name="comment" required class="w-full border-2 mt-2 border-gray-500 focus:border-cyan-400 p-2 rounded-xl md:text-base text-sm"><?php echo htmlspecialchars($oldComment); ?></textarea>
 
     <div class="mt-2">
-      <label class="font-semibold">Rating</label>
+      <label class="font-semibold md:text-base text-sm">Rating</label>
       <div class="flex gap-2">
         <?php for ($i = 1; $i <= 5; $i++): ?>
           <div class="flex">
@@ -85,8 +85,8 @@ $stmt->close();
 
     <!-- BUTTON  -->
     <div class="flex items-center gap-2 mt-6">
-      <button class="border-2 border-cyan-950 p-3 w-full hover:border-cyan-700 rounded-2xl hover:text-cyan-700 font-semibold"><a href="index.php">Batal</a></button>
-      <button type="submit" class="border-2 border-transparent w-full bg-cyan-950 p-3 text-white hover:bg-cyan-800 rounded-2xl font-semibold">Update Komentar</button>   
+      <a href="index.php" class="border-2 border-cyan-950 p-3 w-full hover:border-cyan-700 rounded-2xl hover:text-cyan-700 font-semibold text-center">Cancel</a>
+      <button type="submit" class="border-2 border-transparent w-full bg-cyan-950 p-3 text-white hover:bg-cyan-800 rounded-2xl font-semibold">Renew</button>   
     </div>
     </form>
   </div>

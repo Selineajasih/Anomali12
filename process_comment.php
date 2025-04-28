@@ -11,26 +11,32 @@ if(!isset($_SESSION['user'])){
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $comment = trim($_POST['comment']);
     $rating = intval($_POST['rating']);
+    
     if(empty($comment) || empty($rating)){
-        $_SESSION['message'] = "Komentar dan rating harus diisi.";
+        $_SESSION['message'] = "Comment and rating can’t be left empty, mate.";
         header("Location: index.php");
         exit;
     }
+
     $user_id = $_SESSION['user']['id'];
     $username = $_SESSION['user']['username'];
+
     $stmt = $conn->prepare("INSERT INTO comments (user_id, username, comment, rating) VALUES (?, ?, ?, ?)");
     $stmt->bind_param("issi", $user_id, $username, $comment, $rating);
+
     if(!$stmt->execute()){
-        die("Error saat insert komentar: " . $stmt->error);
+        die("Something went wrong while posting your comment: " . $stmt->error);
     }
+
     if($stmt->execute()){
         header("Location: index.php");
         exit;
     } else {
-        $_SESSION['message'] = "Gagal mengirim komentar.";
+        $_SESSION['message'] = "Couldn’t submit your comment. Give it another go.";
         header("Location: index.php");
         exit;
     }
 }
+
 
 ?>
