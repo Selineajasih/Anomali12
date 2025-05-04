@@ -50,6 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <link rel="stylesheet" href="src/output.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style> body { font-family: 'Poppins', sans-serif; } </style>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-blue-50 flex justify-center items-center min-h-screen px-4">
   <div class="xl:w-5/6 md:w-5/6 rounded-4xl flex items-center justify-between min-h-[600px] p-8 overflow-hidden shadow-2xl bg-cover bg-center" style="background-image: url('assets/abstract-triangle.jpg');">
