@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $check->execute();
         $check->store_result();
         if ($check->num_rows > 0) {
-            $error = "Email ini sudah ada kntl. Silakan <a href='login.php' class='text-blue-500 underline'>login</a>.";
+            $error = "email already exist, please <a href='login.php' class='text-blue-500 underline'>login</a>.";
             $check->close();
         } else {
             $check->close();
@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt = $conn->prepare("INSERT INTO users (username, email, password, verified) VALUES (?, ?, ?, 1)");
             $stmt->bind_param("sss", $username, $email, $hash);
             if ($stmt->execute()) {
-                $_SESSION['message'] = "Pendaftaran berhasil. Silakan login.";
+                $_SESSION['message'] = "create account succes, please log in again";
                 header("Location: login.php");
                 exit;
             } else {
