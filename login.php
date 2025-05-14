@@ -44,6 +44,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
       font-family: 'Poppins', sans-serif;
     }
   </style>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="bg-blue-50 flex justify-center items-center min-h-screen px-4">
