@@ -64,8 +64,7 @@ Our cleaners are fully trained, police-checked, and show up on time (with all th
       <div class="w-full px-10 py-10 md:px-20 lg:px-40 flex justify-center items-center">
         <img src="assets/7426287.svg" alt="cleaner-image" class="">
       </div>
-    </section>
-9
+    </section>`
     <!-- Services -->
     <section class="justify-center w-full">
       <h2 class="text-xl md:text-2xl lg:text-3xl font-semibold text-cyan-700 mb-4 w-full text-center">Our Service</h2>
