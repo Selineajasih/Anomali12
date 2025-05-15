@@ -75,7 +75,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 <body class="min-h-screen">
   <!-- NAVBAR -->
   <nav class="w-full fixed z-50 flex justify-between p-4 items-center top-0">
-  <div class="font-bold text-2xl sm:text-xl">
+  <div class="font-bold md:text-2xl text-lg">
       <span class="text-cyan-700">JMA Cleaning Services</span><span class="text-cyan-400">.</span>
     </div>
   </nav>

@@ -30,7 +30,7 @@ include('db.php');
 <body class="bg-blue-30 min-h-screen">
   <!-- NAVBAR -->
   <nav class="w-full bg-blue-50 bg-opacity-50 backdrop-blur-md fixed z-50 flex justify-between p-2 md:p-4 items-center top-0 shadow-cyan-300 shadow-2xl rounded-b-3xl">
-    <div class="font-bold text-2xl sm:text-xl">
+    <div class="font-bold md:text-2xl text-lg">
       <span class="text-cyan-700">JMA Cleaning Services</span><span class="text-cyan-400">.</span>
     </div>
 
@@ -55,16 +55,12 @@ include('db.php');
       <h1 class="font-semibold text-gray-700 text-2xl md:text-4xl lg:text-5xl">Perth Cleaning Service<br>
         <span id="element" class="text-cyan-700 font-bold"></span>
       </h1>
-      <p class="text-gray-600 mt-2 md:px-26 px-6 lg:px-32 md:text-base text-xs md:mt-5">Looking for a cleaning service in Perth that actually delivers? We’ve got you covered.
-
-We provide high-quality, stress-free cleaning solutions for homes, hotels, and workplaces across the Perth metro area. Whether you need a regular house clean, a spotless hotel room turnaround, or a sparkling office environment — our friendly, reliable team is ready to make it shine.
-
-Our cleaners are fully trained, police-checked, and show up on time (with all the gear, no worries). We use eco-friendly products that are safe for pets and people, but tough on dirt, dust, and grime.</p>
-
-      <div class="w-full px-10 py-10 md:px-20 lg:px-40 flex justify-center items-center">
+      <p class="text-gray-600 mt-2 md:px-26 px-6 lg:px-32 md:text-base text-xs md:mt-5">Looking for a cleaning service in Perth that actually delivers? We’ve got you covered. We provide high-quality, stress-free cleaning solutions for homes, hotels, and workplaces across the Perth metro area. Whether you need a regular house clean, a spotless hotel room turnaround, or a sparkling office environment — our friendly, reliable team is ready to make it shine. Our cleaners are fully trained, police-checked, and show up on time (with all the gear, no worries). We use eco-friendly products that are safe for pets and people, but tough on dirt, dust, and grime.</p>
+      <div class="w-full px-5 py-6 md:py-10 md:px-20 lg:px-40 flex justify-center items-center">
         <img src="assets/7426287.svg" alt="cleaner-image" class="">
       </div>
-    </section>`
+    </section>
+
     <!-- Services -->
     <section class="justify-center w-full">
       <h2 class="text-xl md:text-2xl lg:text-3xl font-semibold text-cyan-700 mb-4 w-full text-center">Our Service</h2>
@@ -73,7 +69,7 @@ Our cleaners are fully trained, police-checked, and show up on time (with all th
       <div class="flex-col flex md:flex-row gap-4 justify-center w-full items-center">
 
         <!-- service option -->
-        <div class=" p-6 shadow-xl rounded-2xl w-2/3 lg:w-1/4">
+        <div class=" p-6 shadow-xl rounded-2xl w-4/5 lg:w-1/4">
           <div class="font-bold text-cyan-500 text-center text-xl">
             Home Cleaning
           </div>
@@ -91,7 +87,7 @@ Our cleaners are fully trained, police-checked, and show up on time (with all th
         </div>
 
         <!-- service option -->
-        <div class=" p-6 shadow-xl rounded-2xl w-2/3 lg:w-1/4">
+        <div class=" p-6 shadow-xl rounded-2xl w-4/5 lg:w-1/4">
           <div class="font-bold text-cyan-500 text-center text-xl">
             Office Cleaning
           </div>
@@ -109,7 +105,7 @@ Our cleaners are fully trained, police-checked, and show up on time (with all th
         </div>
 
         <!-- service option -->
-        <div class=" p-6 shadow-xl rounded-2xl w-2/3 lg:w-1/4">
+        <div class=" p-6 shadow-xl rounded-2xl w-4/5 lg:w-1/4">
           <div class="font-bold text-cyan-500 text-center text-xl">
             Hotel Cleaning
           </div>
@@ -131,7 +127,7 @@ Our cleaners are fully trained, police-checked, and show up on time (with all th
     </section>
 
     <!-- Comments -->
-    <section class="py-8 mt-20">
+    <section class="md:py-8 py-4 mt-20">
       <h2 class="text-xl md:text-2xl lg:text-3xl font-semibold text-cyan-700 mb-4 sm:text-xl">Comment</h2>
 
       <?php if (isset($_SESSION['user'])): ?>
@@ -184,15 +180,14 @@ Our cleaners are fully trained, police-checked, and show up on time (with all th
 
   </main>
 
-  <footer class="bg-cyan-800 text-white p-4 mt-8 flex items-center justify-between">
+  <footer class="bg-cyan-800 text-white p-4 mt-8 flex items-center justify-between md:text-base text-xs">
     <p class="w-full">&copy; 2025 JMA Cleaning Services.</p>
-    <div class="flex gap-2 text-white">
+    <div class="md:flex gap-2 text-white hidden">
       <i data-feather="mail"></i>
       <p class="">jmacleaningservice@hotmail.com</p>
     </div>
       <?php if (isset($_SESSION['user']['role']) && $_SESSION['user']['role'] === 'admin'): ?>
-    <a href="admin.php"
-       class="ml-4 bg-white text-cyan-800 px-3 py-2 rounded shadow hover:bg-gray-100">
+    <a href="admin.php"class="ml-4 md:w-1/5 w-full text-center bg-white text-cyan-800 px-3 py-2 rounded shadow hover:bg-gray-100">
       Admin Panel
     </a>
   <?php endif; ?>
