@@ -39,10 +39,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Konfirmasi Hapus Akun</title>
-  <link rel="stylesheet" href="src/output.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
 </head>
-<body class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-  <div class="bg-white p-6 rounded shadow-md text-center w-80">
+<body class="flex items-center justify-center min-h-screen bg-gray-100">
+
+<!-- CARD  -->
+  <div class="bg-white p-8 rounded shadow-md text-center w-80 lg:rounded-4xl">
+    <div class="w-full bg-amber-400">
+      <i data-feather="trash-2" alt="trash-icon" class="text-red-500 w-full h-12"></i>
+    </div>
     <h2 class="text-lg font-semibold mb-4">Are you sure you want to delete this Account?</h2>
     <?php if (isset($error)): ?>
       <p class="text-red-600 mb-4"><?php echo $error; ?></p>
@@ -58,6 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <a href="index.php" class="inline-block mt-2 text-gray-600 hover:underline">cancel</a>
     </form>
   </div>
+  <!-- CARD END -->
 
   <script>
     // Timer sebelum tombol aktif
@@ -78,5 +91,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       timeLeft--;
     }, 1000);
   </script>
+
+  <script>
+    feather.replace();
+  </script>
 </body>
 </html>
+
