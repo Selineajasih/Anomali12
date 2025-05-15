@@ -190,6 +190,13 @@ Our cleaners are fully trained, police-checked, and show up on time (with all th
       <i data-feather="mail"></i>
       <p class="">jmacleaningservice@hotmail.com</p>
     </div>
+      <?php if (isset($_SESSION['user']['role']) && $_SESSION['user']['role'] === 'admin'): ?>
+    <a href="admin.php"
+       class="ml-4 bg-white text-cyan-800 px-3 py-2 rounded shadow hover:bg-gray-100">
+      Admin Panel
+    </a>
+  <?php endif; ?>
+
   </footer>
 
   <script>
