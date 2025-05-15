@@ -29,72 +29,112 @@ $users = $conn->query("SELECT id, username, email, created_at FROM users
                        ORDER BY created_at DESC");
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Admin Panel – JMA Cleaning</title>
-  <link rel="stylesheet" href="src/output.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
 </head>
-<body class="bg-gray-50 min-h-screen p-6 font-sans">
-  <h1 class="text-3xl font-bold text-cyan-700 mb-6">Admin Panel</h1>
-  <a href="index.php" class="text-blue-500 hover:underline mb-4 inline-block">← Back to Home</a>
+<body class="bg-white min-h-screen text-gray-700">
 
-  <!-- Comments Table -->
-  <section class="mb-12">
-    <h2 class="text-2xl font-semibold mb-4">Manage Comments</h2>
-    <table class="w-full bg-white rounded shadow-md">
-      <thead>
-        <tr class="bg-gray-200 text-left">
-          <th class="p-2">User</th>
-          <th class="p-2">Rating</th>
-          <th class="p-2">Comment</th>
-          <th class="p-2">Date</th>
-          <th class="p-2">Action</th>
-        </tr>
-      </thead>
-      <tbody>
-      <?php while($c = $comments->fetch_assoc()): ?>
-        <tr class="border-t">
-          <td class="p-2"><?= htmlspecialchars($c['username']) ?></td>
-          <td class="p-2"><?= htmlspecialchars($c['rating']) ?> ★</td>
-          <td class="p-2"><?= nl2br(htmlspecialchars($c['comment'])) ?></td>
-          <td class="p-2 text-sm text-gray-600"><?= $c['created_at'] ?></td>
-          <td class="p-2">
-            <a href="admin.php?delete_comment=<?= $c['id'] ?>"
-               class="text-red-600 hover:underline"
-               onclick="return confirm('Hapus komentar ini?')">
-              Delete
-            </a>
-          </td>
-        </tr>
-      <?php endwhile; ?>
-      </tbody>
-    </table>
-  </section>
+  <main class="mx-auto p-8 pt-24">
+  
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-md shadow-md">
+      <div class="mx-auto flex justify-between items-center py-4 px-6">
+        <div class="font-bold md:text-2xl text-lg text-cyan-700 ">
+          Admin JMA Cleaning<span class="text-cyan-400">.</span>
+        </div>
+        <a href="index.php" class="text-cyan-700 font-semibold hover:text-cyan-900 hover:underline transition duration-300">
+          Back to Home
+        </a>
+      </div>
+    </nav>
 
-  <!-- Users Table -->
-  <section>
-    <h2 class="text-2xl font-semibold mb-4">Manage Customers</h2>
-    <table class="w-full bg-white rounded shadow-md">
-      <thead>
-        <tr class="bg-gray-200 text-left">
-          <th class="p-2">ID</th>
-          <th class="p-2">Username</th>
-          <th class="p-2">Email</th>
-          <th class="p-2">Registered</th>
-        </tr>
-      </thead>
-      <tbody>
-      <?php while($u = $users->fetch_assoc()): ?>
-        <tr class="border-t">
-          <td class="p-2"><?= $u['id'] ?></td>
-          <td class="p-2"><?= htmlspecialchars($u['username']) ?></td>
-          <td class="p-2"><?= htmlspecialchars($u['email']) ?></td>
-          <td class="p-2 text-sm text-gray-600"><?= $u['created_at'] ?></td>
-        </tr>
-      <?php endwhile; ?>
-      </tbody>
-    </table>
-  </section>
+    <!-- Comments Section -->
+    <section class="mb-16 ">
+      <h2 class="text-3xl font-semibold mb-4 inline-block ">
+        Manage Comments
+      </h2>
+
+      <div class="overflow-x-auto rounded-xl shadow-lg bg-white ring-1 ring-gray-200">
+        <table class="w-full table-auto border-collapse text-left">
+          <thead class="bg-cyan-100 text-cyan-800 uppercase tracking-wide text-sm font-semibold select-none">
+            <tr>
+              <th class="p-5">User</th>
+              <th class="p-5">Rating</th>
+              <th class="p-5">Comment</th>
+              <th class="p-5">Date</th>
+              <th class="p-5">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+          <?php while($c = $comments->fetch_assoc()): ?>
+            <tr class="border-t border-gray-100 hover:bg-cyan-50 transition-colors duration-300 ease-in-out cursor-default select-text">
+              <td class="p-5 font-semibold text-cyan-700"><?= htmlspecialchars($c['username']) ?></td>
+              <td class="p-5 font-bold text-yellow-400 text-xl tracking-wide"><?= htmlspecialchars($c['rating']) ?> ★</td>
+              <td class="p-5 whitespace-pre-wrap text-gray-800 leading-relaxed"><?= nl2br(htmlspecialchars($c['comment'])) ?></td>
+              <td class="p-5 text-sm text-gray-500 font-mono"><?= $c['created_at'] ?></td>
+              <td class="p-5">
+                <a href="admin.php?delete_comment=<?= $c['id'] ?>"
+                   class="inline-block px-3 py-1 rounded-md bg-red-100 text-red-600 font-semibold hover:bg-red-200 hover:text-red-800 transition"
+                   onclick="return confirm('Hapus komentar ini?')">
+                  Delete
+                </a>
+              </td>
+            </tr>
+          <?php endwhile; ?>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Users Section -->
+    <section>
+      <h2 class="text-3xl font-semibold mb-4 inline-block">
+        Customers Account
+      </h2>
+      <div class="overflow-x-auto rounded-xl shadow-lg bg-white ring-1 ring-gray-200">
+        <table class="w-full table-auto border-collapse text-left">
+          <thead class="bg-cyan-100 text-cyan-800 uppercase tracking-wide text-sm font-semibold select-none">
+            <tr>
+              <th class="p-5">ID</th>
+              <th class="p-5">Username</th>
+              <th class="p-5">Email</th>
+              <th class="p-5">Registered</th>
+            </tr>
+          </thead>
+          <tbody>
+          <?php while($u = $users->fetch_assoc()): ?>
+            <tr class="border-t border-gray-100 hover:bg-cyan-50 transition-colors duration-300 ease-in-out cursor-default select-text">
+              <td class="p-5 font-mono text-gray-600"><?= $u['id'] ?></td>
+              <td class="p-5 font-semibold text-cyan-700"><?= htmlspecialchars($u['username']) ?></td>
+              <td class="p-5 text-blue-600 underline font-medium"><?= htmlspecialchars($u['email']) ?></td>
+              <td class="p-5 text-sm text-gray-500 font-mono"><?= $u['created_at'] ?></td>
+            </tr>
+          <?php endwhile; ?>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-cyan-800 text-white p-4 mt-8 flex items-center justify-between md:text-base text-xs">
+      <p class="w-full">&copy; 2025 JMA Cleaning Services.</p>
+      <div class="md:flex gap-2 text-white hidden">
+        <i data-feather="mail"></i>
+        <p class="">jmacleaningservice@hotmail.com</p>
+      </div>
+    </footer>
+
 </body>
 </html>
+<script>
+  feather.replace();
+</script>
