@@ -51,23 +51,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body class="flex items-center justify-center min-h-screen bg-gray-100">
 
 <!-- CARD  -->
-  <div class="bg-white p-8 rounded shadow-md text-center w-80 lg:rounded-4xl">
-    <div class="w-full bg-amber-400">
-      <i data-feather="trash-2" alt="trash-icon" class="text-red-500 w-full h-12"></i>
+  <div class="bg-white p-8 rounded-2xl shadow-md text-center lg:rounded-4xl lg:w-1/3 w-4/5">
+    <div class="w-full ">
+      <i data-feather="trash-2" alt="trash-icon" class="text-red-500 w-full h-16"></i>
     </div>
-    <h2 class="text-lg font-semibold mb-4">Are you sure you want to delete this Account?</h2>
+    <h2 class="text-xl font-semibold mt-4">Are you sure you want to delete this Account?</h2>
     <?php if (isset($error)): ?>
-      <p class="text-red-600 mb-4"><?php echo $error; ?></p>
+      <p class="text-red-600 mt-4"><?php echo $error; ?></p>
     <?php endif; ?>
 
     <!-- Timer Display -->
-    <p id="timerText" class="mb-4 text-gray-700">if your already delete this account, you cant login again <span id="timer">5</span> Second...</p>
+    <p id="timerText" class=" text-gray-700">If you already delete this account, you can't login anymore. <br>
+    <span id="timer" class="font-semibold">5</span> second...</p>
 
-    <form method="POST">
-      <button id="confirmBtn" type="submit" disabled class="w-full px-4 py-2 bg-red-400 text-white rounded opacity-50 cursor-not-allowed">
+    <form method="POST" class="mt-6">
+      <button id="confirmBtn" type="submit" disabled class="w-full px-4 py-2 bg-red-400 text-white rounded-lg opacity-50 cursor-not-allowed">
         Delete Account
       </button>
-      <a href="index.php" class="inline-block mt-2 text-gray-600 hover:underline">cancel</a>
+      <a href="index.php" class="inline-block mt-2 text-gray-600 hover:underline hover:text-black hover:font-semibold">Cancel</a>
     </form>
   </div>
   <!-- CARD END -->
