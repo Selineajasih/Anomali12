@@ -23,7 +23,7 @@ if(isset($_GET['confirm']) && $_GET['confirm'] === 'yes'){
       <a href="logout.php?confirm=yes" class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">Yes</a>
       <a href="index.php" class="px-4 py-2 bg-gray-300 text-gray-800 rounded hover:bg-gray-400">No</a>
     </div>
-    <a href="delete_account.php" class="text-red-600 hover:underline">Delete Account</a>
+    <a href="delete_account.php" class="text-cyan hover:underline">Delete Account</a>
   </div>
 </body>
 </html>
